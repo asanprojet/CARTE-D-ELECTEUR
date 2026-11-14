@@ -54,7 +54,12 @@ export function WordDocumentPreview({
     ['Numéro de carte', fields.numeroCarte],
     ['Nom', fields.nom],
     ['Postnom / Prénom', fields.postnomPrenom],
-    ['Date / Lieu de naissance', fields.dateLieuNaissance],
+    [
+      'Date / Lieu de naissance',
+      [fields.dateNaissance.trim(), fields.lieuNaissance.trim()]
+        .filter(Boolean)
+        .join(' — '),
+    ],
     ['Sexe', fields.sexe],
     ['Adresse', fields.adresse],
     ['Origine', fields.origine],
@@ -179,8 +184,13 @@ export function WordDocumentPreview({
                     <span className="font-bold text-slate-900">{fields.postnomPrenom || '___________'}</span>
                   </div>
                   <div>
-                    <span className="font-bold text-slate-800">Date/Lieu naiss. : </span>
-                    <span className="font-bold text-slate-900">{fields.dateLieuNaissance || '___________'}</span>
+                    <span className="font-bold text-slate-800">Date/Lieu de naissance : </span>
+                    <span className="font-bold text-slate-900">{fields.dateNaissance || '___________'}</span>
+                    {fields.lieuNaissance.trim() && (
+                      <div className="font-bold text-slate-900 mt-0.5">
+                        {fields.lieuNaissance.trim().toUpperCase()}
+                      </div>
+                    )}
                   </div>
                   <div>
                     <span className="font-bold text-slate-800">Sexe : </span>

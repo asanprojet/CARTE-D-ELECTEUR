@@ -184,8 +184,12 @@ export async function renderCardToCanvas(
   }
 
   ctx.font = '700 28px "DM Sans", Arial, sans-serif';
-  if (fields.dateLieuNaissance.trim()) {
-    ctx.fillText(fields.dateLieuNaissance.trim(), 756, 349, 460);
+  if (fields.dateNaissance.trim()) {
+    ctx.fillText(fields.dateNaissance.trim(), 756, 349, 460);
+  }
+
+  if (fields.lieuNaissance.trim()) {
+    ctx.fillText(fields.lieuNaissance.trim().toUpperCase(), 395, 398, 780);
   }
 
   if (fields.adresse.trim()) {

@@ -187,7 +187,8 @@ export default function App() {
   const hasCustomContent = Boolean(
     fields.nom ||
       fields.postnomPrenom ||
-      fields.dateLieuNaissance ||
+      fields.dateNaissance ||
+      fields.lieuNaissance ||
       fields.sexe ||
       fields.adresse ||
       fields.origine ||
@@ -623,19 +624,36 @@ export default function App() {
                   />
                 </div>
 
-                <div className="sm:col-span-2">
+                <div>
                   <label
-                    htmlFor="field-naissance"
+                    htmlFor="field-date-naissance"
                     className="block text-xs font-semibold text-slate-700 mb-1"
                   >
-                    Date / Lieu de naissance
+                    Date de naissance
                   </label>
                   <input
-                    id="field-naissance"
+                    id="field-date-naissance"
                     type="text"
-                    value={fields.dateLieuNaissance}
-                    onChange={(e) => updateField('dateLieuNaissance', e.target.value)}
-                    placeholder="Ex. 14/05/1995 à Goma"
+                    value={fields.dateNaissance}
+                    onChange={(e) => updateField('dateNaissance', e.target.value)}
+                    placeholder="Ex. 14/05/1995"
+                    className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-sky-600"
+                  />
+                </div>
+
+                <div>
+                  <label
+                    htmlFor="field-lieu-naissance"
+                    className="block text-xs font-semibold text-slate-700 mb-1"
+                  >
+                    Lieu de naissance (à la ligne)
+                  </label>
+                  <input
+                    id="field-lieu-naissance"
+                    type="text"
+                    value={fields.lieuNaissance}
+                    onChange={(e) => updateField('lieuNaissance', e.target.value)}
+                    placeholder="Ex. GOMA"
                     className="w-full px-3 py-2 text-sm bg-white border border-slate-200 rounded-lg focus:outline-none focus:border-sky-600"
                   />
                 </div>

@@ -296,7 +296,23 @@ function buildEditableCardReplica(
                 spacing: { after: 100 },
                 children: [
                   new TextRun({ text: 'Date/Lieu de naissance : ', bold: true, size: 20, color: '1E293B' }),
-                  new TextRun({ text: fields.dateLieuNaissance || '_______________', bold: Boolean(fields.dateLieuNaissance.trim()), size: 20, color: '0F172A' }),
+                  new TextRun({
+                    text: fields.dateNaissance || '_______________',
+                    bold: Boolean(fields.dateNaissance.trim()),
+                    size: 20,
+                    color: '0F172A',
+                  }),
+                  ...(fields.lieuNaissance.trim()
+                    ? [
+                        new TextRun({
+                          text: fields.lieuNaissance.trim().toUpperCase(),
+                          bold: true,
+                          size: 20,
+                          color: '0F172A',
+                          break: 1,
+                        }),
+                      ]
+                    : []),
                 ],
               }),
               new Paragraph({
@@ -427,7 +443,12 @@ function buildStructuredFieldsTable(fields: CardFields): Table {
     ['Numéro de carte', fields.numeroCarte],
     ['Nom', fields.nom],
     ['Postnom / Prénom', fields.postnomPrenom],
-    ['Date / Lieu de naissance', fields.dateLieuNaissance],
+    [
+      'Date / Lieu de naissance',
+      [fields.dateNaissance.trim(), fields.lieuNaissance.trim()]
+        .filter(Boolean)
+        .join(' — '),
+    ],
     ['Sexe', fields.sexe],
     ['Adresse', fields.adresse],
     ['Origine', fields.origine],

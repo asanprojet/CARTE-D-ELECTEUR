@@ -90,7 +90,12 @@ export async function exportCardToPdf(
       ['Numéro de carte', fields.numeroCarte || '—'],
       ['Nom', fields.nom || '............................................................'],
       ['Postnom / Prénom', fields.postnomPrenom || '............................................................'],
-      ['Date / Lieu de naissance', fields.dateLieuNaissance || '............................................................'],
+      [
+        'Date / Lieu de naissance',
+        [fields.dateNaissance.trim(), fields.lieuNaissance.trim()]
+          .filter(Boolean)
+          .join(' — ') || '............................................................',
+      ],
       ['Sexe', fields.sexe || '....................'],
       ['Adresse', fields.adresse || '............................................................'],
       ['Origine', fields.origine || '............................................................'],

@@ -2,5 +2,7 @@
   "name": "Convertisseur Carte PDF & Word",
   "description": "Générateur de versions PDF et Microsoft Word (.docx) pour modèle de carte d'électeur.",
   "requestFramePermissions": [],
-  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+  "majorCapabilities": [
+    "MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"
+  ]
 }

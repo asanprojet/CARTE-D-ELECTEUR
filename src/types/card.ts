@@ -3,7 +3,8 @@ import { DEFAULT_PHOTO_OPTIONS, PhotoProcessOptions } from '../utils/processPort
 export interface CardFields {
   nom: string;
   postnomPrenom: string;
-  dateLieuNaissance: string;
+  dateNaissance: string;
+  lieuNaissance: string;
   sexe: string;
   adresse: string;
   origine: string;
@@ -32,7 +33,8 @@ export type PreviewTab = 'card' | 'word';
 export const DEFAULT_CARD_FIELDS: CardFields = {
   nom: '',
   postnomPrenom: '',
-  dateLieuNaissance: '',
+  dateNaissance: '',
+  lieuNaissance: '',
   sexe: '',
   adresse: '',
   origine: '',

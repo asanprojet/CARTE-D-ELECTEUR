@@ -81,7 +81,12 @@ export function CardPreview({ fields, pdfFormat }: CardPreviewProps) {
                   ['N° Carte', fields.numeroCarte || '—'],
                   ['Nom', fields.nom || '..........................................'],
                   ['Postnom / Prénom', fields.postnomPrenom || '..........................................'],
-                  ['Naissance', fields.dateLieuNaissance || '..........................................'],
+                  [
+                    'Naissance',
+                    [fields.dateNaissance.trim(), fields.lieuNaissance.trim()]
+                      .filter(Boolean)
+                      .join(' — ') || '..........................................',
+                  ],
                   ['Sexe', fields.sexe || '................'],
                   ['Adresse', fields.adresse || '..........................................'],
                   ['Origine', fields.origine || '..........................................'],
